@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 version: 1
 
 frontend:
@@ -20,23 +19,3 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
-=======
-version: 1
-
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - npm ci
-    build:
-      commands:
-        - npm install -g @ionic/cli
-        - ionic build
-  artifacts:
-    baseDirectory: www
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*
->>>>>>> e350ad034f768330a61bfe07ffbca07159edee6b
