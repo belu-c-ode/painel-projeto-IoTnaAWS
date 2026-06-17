@@ -1,0 +1,7 @@
+{
+  "name": "aws-iot-project",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
