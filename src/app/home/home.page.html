@@ -1,38 +1,83 @@
-<ion-header>
+<ion-header class="app-header">
   <ion-toolbar>
-    <ion-title>Painel de Enchentes</ion-title>
+    <ion-title>
+      <ion-icon name="water-outline"></ion-icon>
+      Painel de Enchentes
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="dashboard">
 
-  <div class="status-card" [class.critico]="ultimo.nivel === 'critico'" [class.alerta]="ultimo.nivel === 'alerta'">
-    <h1>{{ ultimo.nivel || '---' }}</h1>
-    <p>Status atual do nível da água</p>
-  </div>
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
 
-  <div class="grid">
-    <div class="card">
-      <h2>{{ ultimo.temperatura }}°C</h2>
+  <section class="hero">
+    <div>
+      <span class="badge">Monitoramento IoT em tempo real</span>
+      <h1>Controle de Nível da Água</h1>
+      <p>Dados recebidos da ESP32 via AWS IoT Core, DynamoDB, Lambda e API Gateway.</p>
+    </div>
+
+    <div class="hero-icon">
+      <ion-icon name="cloudy-night-outline"></ion-icon>
+    </div>
+  </section>
+
+  <section
+    class="status-card"
+    [class.critico]="ultimo.nivel === 'critico'"
+    [class.alerta]="ultimo.nivel === 'alerta'"
+    [class.normal]="ultimo.nivel === 'normal'"
+  >
+    <div class="status-pulse"></div>
+
+    <p class="status-label">Status atual</p>
+    <h2>{{ ultimo.nivel || '---' }}</h2>
+    <span>Status atual do nível da água</span>
+  </section>
+
+  <section class="grid">
+    <div class="metric-card">
+      <div class="icon temperature">
+        <ion-icon name="thermometer-outline"></ion-icon>
+      </div>
       <p>Temperatura</p>
+      <h3>{{ ultimo.temperatura || '--' }}°C</h3>
     </div>
 
-    <div class="card">
-      <h2>{{ ultimo.umidade }}%</h2>
+    <div class="metric-card">
+      <div class="icon humidity">
+        <ion-icon name="water-outline"></ion-icon>
+      </div>
       <p>Umidade</p>
+      <h3>{{ ultimo.umidade || '--' }}%</h3>
     </div>
 
-    <div class="card">
-      <h2>{{ ultimo.distancia }} cm</h2>
+    <div class="metric-card">
+      <div class="icon distance">
+        <ion-icon name="analytics-outline"></ion-icon>
+      </div>
       <p>Distância</p>
+      <h3>{{ ultimo.distancia || '--' }} cm</h3>
     </div>
-  </div>
+  </section>
 
-  <div class="chart-card">
+  <section class="chart-card">
+    <div class="chart-header">
+      <div>
+        <p>Histórico recente</p>
+        <h3>Telemetria do sensor</h3>
+      </div>
+
+      <ion-icon name="stats-chart-outline"></ion-icon>
+    </div>
+
     <canvas id="grafico"></canvas>
-  </div>
+  </section>
 
-  <ion-button expand="block" (click)="carregarDados()">
+  <ion-button expand="block" class="refresh-button" (click)="carregarDados()">
+    <ion-icon name="refresh-outline" slot="start"></ion-icon>
     Atualizar agora
   </ion-button>
 
