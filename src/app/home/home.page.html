@@ -15,8 +15,8 @@
   <section class="hero">
     <div>
       <span class="badge">Monitoramento IoT em tempo real</span>
-      <h1>Controle de Nível da Água</h1>
-      <p>Dados recebidos da ESP32 via AWS IoT Core, DynamoDB, Lambda e API Gateway.</p>
+      <h1 style="color: #0eedc1;">Controle de Nível da Água</h1>
+      <p style="color: #0eedc1">Dados recebidos da ESP32 via AWS IoT Core, DynamoDB, Lambda e API Gateway.</p>
     </div>
 
     <div class="hero-icon">
@@ -34,7 +34,7 @@
 
     <p class="status-label">Status atual</p>
     <h2>{{ ultimo.nivel || '---' }}</h2>
-    <span>Status atual do nível da água</span>
+    <span style="color: #0eedc1;">Status atual do nível da água</span>
   </section>
 
   <section class="grid">
@@ -42,24 +42,24 @@
       <div class="icon temperature">
         <ion-icon name="thermometer-outline"></ion-icon>
       </div>
-      <p>Temperatura</p>
-      <h3>{{ ultimo.temperatura || '--' }}°C</h3>
+      <p style="color: #0eedc1;">Temperatura</p>
+      <h3 style="color: #0eedc1;">{{ ultimo.temperatura || '--' }}°C</h3>
     </div>
 
     <div class="metric-card">
       <div class="icon humidity">
         <ion-icon name="water-outline"></ion-icon>
       </div>
-      <p>Umidade</p>
-      <h3>{{ ultimo.umidade || '--' }}%</h3>
+      <p style="color: #0eedc1;">Umidade</p>
+      <h3 style="color: #0eedc1;">{{ ultimo.umidade || '--' }}%</h3>
     </div>
 
     <div class="metric-card">
       <div class="icon distance">
         <ion-icon name="analytics-outline"></ion-icon>
       </div>
-      <p>Distância</p>
-      <h3>{{ ultimo.distancia || '--' }} cm</h3>
+      <p style="color: #0eedc1;">Distância</p>
+      <h3 style="color: #0eedc1;">{{ ultimo.distancia || '--' }} cm</h3>
     </div>
   </section>
 
