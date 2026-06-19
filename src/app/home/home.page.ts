@@ -34,7 +34,7 @@ export class HomePage implements OnInit {
   criarGrafico() {
     const labels = this.dados.map((_, i) => i + 1);
     const temperaturas = this.dados.map(d => d.temperatura);
-    const distancias = this.dados.map(d => d.distancia);
+    const alturas = this.dados.map(d => d.altura);
 
     if (this.chart) {
       this.chart.destroy();
@@ -50,8 +50,8 @@ export class HomePage implements OnInit {
             data: temperaturas
           },
           {
-            label: 'Distância da água',
-            data: distancias
+            label: 'Altura da água',
+            data: alturas
           }
         ]
       }
