@@ -28,13 +28,13 @@ export class HomePage implements OnInit {
 
     this.ultimo = this.dados[this.dados.length - 1] || {};
 
-    setTimeout(() => this.criarGrafico(), 100);
+    setTimeout(() => this.criarGraficoTemperatura(), 100);
+    setTimeout(() => this.criarGraficoAltura(), 100);
   }
 
-  criarGrafico() {
+  criarGraficoTemperatura() {
     const labels = this.dados.map((_, i) => i + 1);
     const temperaturas = this.dados.map(d => d.temperatura);
-    const alturas = this.dados.map(d => d.altura);
 
     if (this.chart) {
       this.chart.destroy();
@@ -48,7 +48,24 @@ export class HomePage implements OnInit {
           {
             label: 'Temperatura',
             data: temperaturas
-          },
+          }
+        ]
+      }
+    });
+  }
+  criarGraficoAltura() {
+    const labels = this.dados.map((_, i) => i + 1);
+    const alturas = this.dados.map(d => d.altura);
+
+    if (this.chart) {
+      this.chart.destroy();
+    }
+
+    this.chart = new Chart('grafico', {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [
           {
             label: 'Altura da água',
             data: alturas
